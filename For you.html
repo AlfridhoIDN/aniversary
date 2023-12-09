@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Untukmu, Tercinta</title>
+    <style>
+        body {
+            background-image: url(./image/background\ \(2\).jpg);
+            background-size: cover;
+            background-position: top;
+            font-family: Arial, sans-serif;
+            overflow-y: hidden;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+        }
+        .content {
+            margin: auto;
+            width: 50%;
+            padding: 5px;
+            text-align: center;
+            position: relative;
+        }
+        .content h1 span {
+            animation: runningLight 3s linear infinite;
+            animation-delay: calc(0.3s * var(--i));
+        }
+        @keyframes runningLight {
+            0%, 80%, 100% { color: black; }
+            20%, 60% { color: red; }
+        }
+        .love {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .love path {
+            fill: transparent;
+            stroke: red;
+            stroke-width: 3;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 40s linear forwards, blink 1s 5s step-end infinite;
+            pointer-events: visiblePainted;
+        }
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes blink {
+            0%, 49% {
+                fill: none;
+                opacity: 0%;
+            }
+            50%, 100% {
+                fill: red;
+                opacity: 100%;
+            }
+        }
+        .box {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(127, 247, 97);
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box1 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ pict.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box2 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ date.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box3 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ you\ come\ to\ my\ house.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box4 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ cos\ date.jpeg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box5 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ graduate.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box6 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ aquarium\ date.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box7 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ time\ LDR\ with\ new\ school.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .box8 {
+            position:absolute;
+            top: 50%;
+            left: 35%;
+            width: 200px;
+            height: 200px;
+            background-image: url(./image/first\ time\ you\ held\ a\ cat.jpg);
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: transform 1s, opacity 1s;
+            border-radius: 25px;
+        }
+        .latar{
+            margin: auto;
+            position: relative;
+            background-color: aliceblue;
+            border-radius: 25px;
+            height: 300px;
+            width: 700px;
+            justify-content: center;
+        }
+        .text {
+            padding-top: 30px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .page {
+            display: none;
+            z-index: 1;
+        }
+        .page.active {
+            display: block;
+        }
+        .book {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        .book .next, .book .prev {
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: lightgray;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .book .next {
+            right: 0;
+            z-index: 1;
+        }
+        .book .prev {
+            left: 0;
+            z-index: 1;
+        }
+        #album {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .page1 { background-color: red; }
+        .page2 { background-color: orange; }
+        .page3 { background-color: yellow; }
+        .page4 { background-color: green; }
+        .page5 { background-color: blue; }
+        .page6 { background-color: indigo; }
+        .page7 { background-color: violet; }
+        .page8 { background-color: pink; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <h1>
+            <span style="--i:0;">H</span>
+            <span style="--i:1;">a</span>
+            <span style="--i:2;">p</span>
+            <span style="--i:3;">p</span>
+            <span style="--i:4;">y</span>
+            <span style="--i:5;"> </span>
+            <span style="--i:6;">A</span>
+            <span style="--i:7;">n</span>
+            <span style="--i:8;">i</span>
+            <span style="--i:9;">v</span>
+            <span style="--i:10;"> </span>
+            <span style="--i:11;">🦕</span>
+        </h1>
+        <div class="latar">
+        <p class="text">Haiii, its me again, with another pages, happy aniversary for us!, we made it? yes ofcourse, we did it, our relationship is <b>1 year</b> now, im verry happy being your boyfriend, if you ask me "why?" because you are the most beautiful girl and the cutes girl i meet, and because of you now i have a new personality, but sometimes i miss our old, but im still happy, because we did well whatever we do, like stand infrontoff peoples, and speak up what we want, thats why im happy with you. dan kamu bisa klik hati ini untuk melihat kenangan kita yang udah kita lalui bersama sama, kamu, aku dan waktu. maafin aku yah selama satu tahun aku belum bisa ngasih hal yang paling tebaik buat kmau, but ill try the best i can. aku bakal mencoba yang terbaik semampuku, hehe maaf ya kalau bahasa inggris aku ngga baik, aku juga masih tahap belajar, hehe.</p>
+        <p class="text">Terima kasih telah menjadi bagian dari hidup ku. aku sayang banget sama kamuuu, sebesar ini.</p>
+        </div>
+        <div class="love">
+            <svg viewBox="0 0 32 29.6">
+                <path d="M16,29.6C16,29.6,2.9,19.2,2.9,11.8C2.9,7.6,6.4,4.2,10.6,4.2C13.4,4.2,16,6.1,16,6.1C16,6.1,18.6,4.2,21.4,4.2C25.6,4.2,29.1,7.6,29.1,11.8C29.1,19.2,16,29.6,16,29.6Z"/>
+            </svg>
+        </div>
+        <div id="boxContainer">
+            <div class="box box1" id="box1">1</div>
+            <div class="box box2" id="box2">2</div>
+            <div class="box box3" id="box3">3</div>
+            <div class="box box4" id="box4">4</div>
+            <div class="box box5" id="box5">5</div>
+            <div class="box box6" id="box6">6</div>
+            <div class="box box7" id="box7">7</div>
+            <div class="box box8" id="box8">8</div>
+        </div>
+        <div id="album">Album</div>
+        <div class="book">
+            <div class="page page1 active">
+                <img src="path/to/image1.jpg" alt="Description of Image 1">
+                <p>Kalimat di bawah gambar 1</p>
+            </div>
+            <div class="page page2">
+                <img src="path/to/image2.jpg" alt="Description of Image 2">
+                <p>Kalimat di bawah gambar 2</p>
+            </div>
+            <div class="page page3">Page 3</div>
+            <div class="page page4">Page 4</div>
+            <div class="page page5">Page 5</div>
+            <div class="page page6">Page 6</div>
+            <div class="page page7">Page 7</div>
+            <div class="page page8">Page 8</div>
+            <div class="prev">&lt;</div>
+            <div class="next">&gt;</div>
+        </div>
+    </div>
+    <script>
+          $(document).ready(function() {
+            $(".love").parent().click(function() {
+                $(".box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8").css("opacity", "1");
+                $("#box1").css("transform", "translate(-360px, -290px)");
+                $("#box2").css("transform", "translate(0px, -340px)");
+                $("#box3").css("transform", "translate(360px, -290px)");
+                $("#box4").css("transform", "translate(-360px, 200px)");
+                $("#box5").css("transform", "translate(520px, -50px)");
+                $("#box6").css("transform", "translate(-520px, -50px)");
+                $("#box7").css("transform", "translate(0px, 250px)");
+                $("#box8").css("transform", "translate(360px, 200px)");
+            });
+        });
+        $(document).ready(function() {
+            var currentPage = 0;
+            var numPages = $('.page').length;
+            $('#album').click(function() {
+                $('.book').show();
+            });
+            $('.next').click(function() {
+                if (currentPage < numPages - 1) {
+                    $('.page').eq(currentPage).removeClass('active');
+                    currentPage++;
+                    $('.page').eq(currentPage).addClass('active');
+                }
+            });
+            $('.prev').click(function() {
+                if (currentPage > 0) {
+                    $('.page').eq(currentPage).removeClass('active');
+                    currentPage--;
+                    $('.page').eq(currentPage).addClass('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
