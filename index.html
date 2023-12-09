@@ -12,6 +12,7 @@
             user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
+            z-index: -2;
         }
         .content {
             margin: auto;
@@ -19,6 +20,9 @@
             padding: 5px;
             text-align: center;
             position: relative;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
         }
         .content h1 span {
             animation: runningLight 3s linear infinite;
@@ -57,13 +61,28 @@
                 opacity: 100%;
             }
         }
+
+        .explode {
+            animation: explode 1s forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
         .box {
             position:absolute;
             top: 50%;
             left: 35%;
             width: 200px;
             height: 200px;
-            background-color: rgb(127, 247, 97);
+            background-color: rgb(241, 166, 52);
             opacity: 0;
             transition: transform 1s, opacity 1s;
             border-radius: 25px;
@@ -174,71 +193,230 @@
         }
         .latar{
             margin: auto;
+            margin-right: 80%;
             position: relative;
             background-color: aliceblue;
             border-radius: 25px;
             height: 300px;
             width: 700px;
             justify-content: center;
+            z-index: -1;
         }
         .text {
             padding-top: 30px;
             padding-left: 5px;
             padding-right: 5px;
         }
-        .page {
-            display: none;
-            z-index: 1;
-        }
-        .page.active {
-            display: block;
-        }
-        .book {
-            display: none;
+        .detail-box1 {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1000;
             width: 200px;
             height: 200px;
-            border: 1px solid black;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
         }
-        .book .next, .book .prev {
-            z-index: 1;
+
+        .box:hover .detail-box1 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        .detail-box2 {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: lightgray;
-            text-align: center;
-            line-height: 30px;
-            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
         }
-        .book .next {
-            right: 0;
-            z-index: 1;
+
+        .box:hover .detail-box2 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
         }
-        .book .prev {
+        .detail-box3 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
+        }
+
+        .box:hover .detail-box3 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        .detail-box4 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
+        }
+
+        .box:hover .detail-box4 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        .detail-box5 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
+        }
+
+        .box:hover .detail-box5 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        .detail-box6 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
+        }
+
+        .box:hover .detail-box6 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        .detail-box7 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
+        }
+
+        .box:hover .detail-box7 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        .detail-box8 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 25px;
+            opacity: 0; 
+            transform: translateY(-100%);
+            transition: transform 1s, opacity 2s;
+        }
+
+        .box:hover .detail-box8 {
+            transform: translateY(0);
+            transition: transform 2s, opacity 2s;
+            opacity: 1;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: 10;
+        }
+        .musicplayer {
+            width: 250px;
+            height: 250px;
+            border-radius: 25px;
+            position: absolute;
+            background-color: rgb(209, 122, 16);
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: -1;
+        }
+        #mp {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            right: 27%;
+            top: 44%;
+            transform: translatey(100%);
+            transform: translateX(1%);
+            rotate: -40deg;
+            opacity: 0;
+            z-index: 99999;
+        }
+        #play {
+            position: absolute;
+            top: calc(60% + 100px);
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            z-index: 9999;
+        }
+        .box9 {
+            position: absolute;
+            top: 0;
             left: 0;
-            z-index: 1;
+            width: 200px;
+            height: 200px;
+            opacity: 0;
         }
-        #album {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+        #box9Text {
+            position: relative;
+            top: 210px;
+            left: 5%;
+            opacity: 0;
+            z-index: 999999;
         }
-        .page1 { background-color: red; }
-        .page2 { background-color: orange; }
-        .page3 { background-color: yellow; }
-        .page4 { background-color: green; }
-        .page5 { background-color: blue; }
-        .page6 { background-color: indigo; }
-        .page7 { background-color: violet; }
-        .page8 { background-color: pink; }
+
+        #record {
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+        }
+        .blackscreen {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index:-1;
+            display: none;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
     <div class="content">
@@ -257,8 +435,8 @@
             <span style="--i:11;">🦕</span>
         </h1>
         <div class="latar">
-        <p class="text">Haiii, its me again, with another pages, happy aniversary for us!, we made it? yes ofcourse, we did it, our relationship is <b>1 year</b> now, im verry happy being your boyfriend, if you ask me "why?" because you are the most beautiful girl and the cutes girl i meet, and because of you now i have a new personality, but sometimes i miss our old, but im still happy, because we did well whatever we do, like stand infrontoff peoples, and speak up what we want, thats why im happy with you. dan kamu bisa klik hati ini untuk melihat kenangan kita yang udah kita lalui bersama sama, kamu, aku dan waktu. maafin aku yah selama satu tahun aku belum bisa ngasih hal yang paling tebaik buat kmau, but ill try the best i can. aku bakal mencoba yang terbaik semampuku, hehe maaf ya kalau bahasa inggris aku ngga baik, aku juga masih tahap belajar, hehe.</p>
-        <p class="text">Terima kasih telah menjadi bagian dari hidup ku. aku sayang banget sama kamuuu, sebesar ini.</p>
+        <p class="text">Haiii, its me again, with another pages, happy aniversary for us!, we made it? yes ofcourse, we did it, our relationship is <b>1 year</b> now, im verry happy being your boyfriend, if you ask me "why?" because you are the most beautiful girl and the cutes girl i meet, and because of you now i have a new personality, but sometimes i miss our old, but im still happy, because we did well whatever we do, like stand infrontoff peoples, and speak up what we want, thats why im happy with you. dan aku punya hadiah kecil buat kamu hihihi, coba di klik deh love nya tapi klik di bagian bawah lovenya jangan lupa nyalain musicnya dulu yaa sebelum kamu explore lebih dalem lagi, anddd ... tadaaaa !! itu kenangan kita yang udah kita lalui bersama sama, kamu, aku dan waktu. maafin aku yah selama satu tahun aku belum bisa ngasih hal yang paling tebaik buat kmau, but ill try the best i can. aku bakal mencoba yang terbaik semampuku, hehe maaf ya kalau bahasa inggris aku ngga baik, aku juga masih tahap belajar, hehe.</p>
+        <p class="text">Terima kasih telah menjadi bagian dari hidup aku. aku sayang banget sama kamuuuuuu </p>
         </div>
         <div class="love">
             <svg viewBox="0 0 32 29.6">
@@ -266,68 +444,121 @@
             </svg>
         </div>
         <div id="boxContainer">
-            <div class="box box1" id="box1">1</div>
-            <div class="box box2" id="box2">2</div>
-            <div class="box box3" id="box3">3</div>
-            <div class="box box4" id="box4">4</div>
-            <div class="box box5" id="box5">5</div>
-            <div class="box box6" id="box6">6</div>
-            <div class="box box7" id="box7">7</div>
-            <div class="box box8" id="box8">8</div>
-        </div>
-        <div id="album">Album</div>
-        <div class="book">
-            <div class="page page1 active">
-                <img src="path/to/image1.jpg" alt="Description of Image 1">
-                <p>Kalimat di bawah gambar 1</p>
+            <div class="box box1" id="box1">
+                
+                <div class="detail-box1">
+                    <p>first pict kamu yang aku punya pertama kali and the first meet of two people are faling in love with each other, di sini kita bener bener awal ketemu, kenal, dan serasa temen, dan dari situ jgua muncul nya benih benih cinta, asik benih xixixixi</p>
+                </div>
             </div>
-            <div class="page page2">
-                <img src="path/to/image2.jpg" alt="Description of Image 2">
-                <p>Kalimat di bawah gambar 2</p>
+            <div class="box box2" id="box2">
+                
+                <div class="detail-box2">
+                    <p>first date, ini pertama kalinya kita ngedate, dan ya, walau di tempat yang kaya begitu, bagi aku udah alhamdulilah karna ya ngga ramai dan nyaman aja menurut aku, aku ngga tau kamu gimana, aku takut kamu ngga nyaman pas first date itu, maaf yaa</p>
+                </div>
             </div>
-            <div class="page page3">Page 3</div>
-            <div class="page page4">Page 4</div>
-            <div class="page page5">Page 5</div>
-            <div class="page page6">Page 6</div>
-            <div class="page page7">Page 7</div>
-            <div class="page page8">Page 8</div>
-            <div class="prev">&lt;</div>
-            <div class="next">&gt;</div>
+            <div class="box box3" id="box3">
+                
+                <div class="detail-box3">
+                    <p>first time you come to my house, ini bukan pictnya tapi, saat kamu kerumah aku juga setelah kita ambil raport, dan di foto ini, kita pertama kalinya kapelan gelang hehe, selain gelang sebelumnya juga kita kapelan dinesol dan cincin 💍</p>
+                </div>
+            </div>
+            <div class="box box4" id="box4">
+                
+                <div class="detail-box4">
+                    <p>first time cos date, exited? ofc, karena aku bisa seneng seneng sama kamu, dan aku seneng banget ngeliat kmau senyum gembira, dan itu pertama kalinya aku liat kamu cosplay secara langsung depan mata aku hihihii 💕</p>
+                </div>
+            </div>
+            <div class="box box5" id="box5">
+                
+                <div class="detail-box5">
+                    <p>Ini first time kita graduate bareng, bener bener ngerayain bareng bareng, dan hari terakhir dengan sekolah yang sama, walau banyak sedihnya, tetapi menurut ku lebih banyak kenangan dan susah senang yang udah kita lewatin bareng bareng</p>
+                </div>
+            </div>
+            <div class="box box6" id="box6">
+                
+                <div class="detail-box6">
+                    <p>first time kita aquarium date, aku seneng banget bisa jalan jalan sama kamu walau belum bener bener berdua, but that will be special for me too, moment ini tu setelah kita graduate di TMII dan setelah itu kamu ajak aku main ^^</p>
+                </div>
+            </div>
+            <div class="box box7" id="box7">
+                
+                <div class="detail-box7">
+                    <p>first time LDR, jujur aku sedih banget belum bisa nerima kenyataan bahwa kita beda sekolah, dan sekarang  kita berjauhan dengan sekolah dan tujuan masing masing 💔, tapi ini juga demi masa depan kitaa, aku bakal berusaha buat kita</p>
+                </div>
+            </div>
+            <div class="box box8" id="box8">
+                
+                <div class="detail-box8">
+                    <p>first time kamu megang kucingg pakai tangna kamu sendirii, kamu hebat bangettt, kamu patut di beri apresiasi karna sudah berani melawan ketakutan kmau sendiriii, aku seneng banget bisa ngeliat berusaha melawan ketakutna kamu sendiri</p>
+                </div>
+            </div>
         </div>
+        <div class="box box9" id="box9">
+            music box
+            <img id="record" src="./image/piringan.png" />
+        </div>
+        <p id="box9Text" style="position: absolute; top: calc(50% + 100px); left: 5%; opacity: 0; z-index: 999999;">Teks Anda di sini</p>
+        <div class="circle" id="circle"></div>
+        <div class="musicplayer" id="musicplayer"> Put here</div>
+        <img id="mp" src="./image/mp.png" />
+        <button id="play">Play</button>
+        <audio id="audio" src="./lagu/oneonlyori.mp3"></audio>
+        <div id="blackScreen" class="blackscreen"></div>
     </div>
     <script>
-          $(document).ready(function() {
-            $(".love").parent().click(function() {
-                $(".box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8").css("opacity", "1");
-                $("#box1").css("transform", "translate(-360px, -290px)");
-                $("#box2").css("transform", "translate(0px, -340px)");
-                $("#box3").css("transform", "translate(360px, -290px)");
-                $("#box4").css("transform", "translate(-360px, 200px)");
-                $("#box5").css("transform", "translate(520px, -50px)");
-                $("#box6").css("transform", "translate(-520px, -50px)");
-                $("#box7").css("transform", "translate(0px, 250px)");
-                $("#box8").css("transform", "translate(360px, 200px)");
-            });
+        document.getElementById('play').addEventListener('click', function() {
+            var audio = document.getElementById('audio');
+            audio.play();
         });
-        $(document).ready(function() {
-            var currentPage = 0;
-            var numPages = $('.page').length;
-            $('#album').click(function() {
-                $('.book').show();
-            });
-            $('.next').click(function() {
-                if (currentPage < numPages - 1) {
-                    $('.page').eq(currentPage).removeClass('active');
-                    currentPage++;
-                    $('.page').eq(currentPage).addClass('active');
+          $(document).ready(function() {
+            var clicked = false;
+            var audio = $("#audio")[0];
+            audio.play();
+            audio.pause();
+            $(".love").click(function() {
+                if (!clicked) {
+                    $(".box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9").css("opacity", "1");
+                    $("#box1").css("transform", "translate(-360px, -290px)");
+                    $("#box2").css("transform", "translate(0px, -340px)");
+                    $("#box3").css("transform", "translate(360px, -290px)");
+                    $("#box4").css("transform", "translate(-360px, 200px)");
+                    $("#box5").css("transform", "translate(520px, -50px)");
+                    $("#box6").css("transform", "translate(-520px, -50px)");
+                    $("#box7").css("transform", "translate(0px, 250px)");
+                    $("#box8").css("transform", "translate(360px, 200px)");
+                    $("#box9").css("transform", "translate(-350px, 0px)");
+                    $(this).addClass("explode");
+                    $("#circle").css("opacity", "1");
+                    $("#musicplayer").css("opacity", "1");
+                    $("#p").css("opacity", "1");
+                    $("#mp, #play").css("opacity", "1");
+                    clicked = true;
+                    $("#blackScreen").css("display", "block");
+                } else {
+                    $(this).css('display', 'transparent');
+                    $("#circle").css("opacity", "1");
+                    $("#musicplayer").css("opacity", "1");
+                    $("#mp, #play").css("opacity", "1");
                 }
             });
-            $('.prev').click(function() {
-                if (currentPage > 0) {
-                    $('.page').eq(currentPage).removeClass('active');
-                    currentPage--;
-                    $('.page').eq(currentPage).addClass('active');
+            $("#record").draggable({
+                revert: "invalid"
+            });
+
+            $("#circle").droppable({
+                accept: "#record",
+                drop: function(event, ui) {
+                    ui.helper.draggable({ revert: false });
                 }
+            });
+            $("#play").click(function() {
+                $("#mp").css({
+                    "transform": "translateY(-50%) translateX(-10%) rotate(30deg)",
+                    "right": "24%",
+                    "top": "50%"
+                });
+                $("#audio")[0].play(); 
+                $("#record").css("animation", "spin 5s linear infinite"); 
             });
         });
     </script>
